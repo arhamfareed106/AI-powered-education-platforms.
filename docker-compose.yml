@@ -1,0 +1,84 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  db:
+    image: postgres:13
+    container_name: fluento_db
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-fluento}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-fluento_password}
+      POSTGRES_DB: ${POSTGRES_DB:-fluento_db}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  # Redis Cache
+  redis:
+    image: redis:6-alpine
+    container_name: fluento_redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  # Backend API
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: fluento_backend
+    restart: always
+    depends_on:
+      - db
+      - redis
+    environment:
+      POSTGRES_SERVER: db
+      POSTGRES_USER: ${POSTGRES_USER:-fluento}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-fluento_password}
+      POSTGRES_DB: ${POSTGRES_DB:-fluento_db}
+      REDIS_URL: redis://redis:6379
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    env_file:
+      - ./backend/.env
+
+  # Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: fluento_frontend
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+
+  # Nginx Reverse Proxy
+  nginx:
+    image: nginx:alpine
+    container_name: fluento_nginx
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/certs:/etc/nginx/certs
+    depends_on:
+      - backend
+      - frontend
+
+volumes:
+  postgres_data:
+  redis_data:
