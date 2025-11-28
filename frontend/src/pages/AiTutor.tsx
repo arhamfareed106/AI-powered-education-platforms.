@@ -1,0 +1,120 @@
+import React, { useState } from 'react'
+
+const AiTutor: React.FC = () => {
+  const [messages, setMessages] = useState([
+    { id: 1, text: "¡Hola! Soy tu tutor de español. ¿En qué puedo ayudarte hoy?", sender: "ai" }
+  ])
+  const [inputText, setInputText] = useState('')
+  const [isRecording, setIsRecording] = useState(false)
+
+  const handleSendMessage = () => {
+    if (inputText.trim() === '') return
+    
+    // Add user message
+    const newUserMessage = {
+      id: messages.length + 1,
+      text: inputText,
+      sender: "user"
+    }
+    
+    setMessages([...messages, newUserMessage])
+    
+    // Simulate AI response
+    setTimeout(() => {
+      const aiResponse = {
+        id: messages.length + 2,
+        text: `Entiendo lo que dices sobre "${inputText}". ¿Quieres practicar más sobre este tema o cambiar a otro?`,
+        sender: "ai"
+      }
+      setMessages(prev => [...prev, aiResponse])
+    }, 1000)
+    
+    setInputText('')
+  }
+
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      handleSendMessage()
+    }
+  }
+
+  const toggleRecording = () => {
+    setIsRecording(!isRecording)
+    // In a real app, this would start/stop actual audio recording
+  }
+
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold text-blue-600 mb-6">AI Spanish Tutor</h1>
+      
+      <div className="bg-white rounded-lg shadow-md h-[600px] flex flex-col">
+        {/* Chat Header */}
+        <div className="bg-blue-600 text-white p-4 rounded-t-lg">
+          <h2 className="text-xl font-bold">Conversación con Tutor AI</h2>
+        </div>
+        
+        {/* Chat Messages */}
+        <div className="flex-1 overflow-y-auto p-4 space-y-4">
+          {messages.map((message) => (
+            <div 
+              key={message.id} 
+              className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
+            >
+              <div 
+                className={`max-w-xs md:max-w-md px-4 py-2 rounded-lg ${
+                  message.sender === 'user' 
+                    ? 'bg-blue-500 text-white' 
+                    : 'bg-gray-200 text-gray-800'
+                }`}
+              >
+                {message.text}
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        {/* Chat Input */}
+        <div className="border-t p-4">
+          <div className="flex space-x-2">
+            <input
+              type="text"
+              className="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Escribe tu mensaje aquí..."
+              value={inputText}
+              onChange={(e) => setInputText(e.target.value)}
+              onKeyPress={handleKeyPress}
+            />
+            <button
+              onClick={handleSendMessage}
+              className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300"
+            >
+              Enviar
+            </button>
+            <button
+              onClick={toggleRecording}
+              className={`px-4 py-2 rounded-lg transition duration-300 ${
+                isRecording 
+                  ? 'bg-red-500 text-white animate-pulse' 
+                  : 'bg-gray-200 text-gray-800 hover:bg-gray-300'
+              }`}
+            >
+              {isRecording ? 'Detener' : 'Grabar'}
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      {/* Avatar Section */}
+      <div className="mt-8 bg-white p-6 rounded-lg shadow-md">
+        <h2 className="text-2xl font-bold mb-4">Avatar del Tutor</h2>
+        <div className="flex items-center justify-center">
+          <div className="w-48 h-48 bg-gray-200 rounded-full flex items-center justify-center">
+            <span className="text-gray-500">Avatar del Tutor AI</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default AiTutor

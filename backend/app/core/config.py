@@ -1,0 +1,45 @@
+from typing import List, Union
+from pydantic import AnyHttpUrl, BaseSettings, validator
+
+class Settings(BaseSettings):
+    PROJECT_NAME: str = "Fluento AI"
+    BACKEND_CORS_ORIGINS: List[AnyHttpUrl] = []
+    API_V1_STR: str = "/api/v1"
+    
+    @validator("BACKEND_CORS_ORIGINS", pre=True)
+    def assemble_cors_origins(cls, v: Union[str, List[str]]) -> Union[List[str], str]:
+        if isinstance(v, str) and not v.startswith("["):
+            return [i.strip() for i in v.split(",")]
+        elif isinstance(v, (list, str)):
+            return v
+        raise ValueError(v)
+    
+    # Database
+    POSTGRES_SERVER: str
+    POSTGRES_USER: str
+    POSTGRES_PASSWORD: str
+    POSTGRES_DB: str
+    DATABASE_URL: str = ""
+    
+    @validator("DATABASE_URL", pre=True)
+    def assemble_db_connection(cls, v: str, values: dict) -> str:
+        if isinstance(v, str):
+            return v
+        return f"postgresql://{values.get('POSTGRES_USER')}:{values.get('POSTGRES_PASSWORD')}@{values.get('POSTGRES_SERVER')}/{values.get('POSTGRES_DB')}"
+    
+    # JWT
+    SECRET_KEY: str
+    ALGORITHM: str = "HS256"
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
+    
+    # Stripe
+    STRIPE_SECRET_KEY: str
+    STRIPE_PUBLISHABLE_KEY: str
+    STRIPE_WEBHOOK_SECRET: str
+    
+    class Config:
+        case_sensitive = True
+        env_file = ".env"
+
+settings = Settings()
+settings = Settings()
