@@ -4,6 +4,7 @@
 ![Language Learning](https://img.shields.io/badge/Language-Spanish-orange)
 ![Tech Stack](https://img.shields.io/badge/Tech-FastAPI%20|%20React-informational)
 
+
 A cutting-edge, production-ready SaaS platform revolutionizing Spanish language education with AI-powered tutoring for schools, teachers, and students. Transform traditional language learning with immersive AI experiences that accelerate proficiency and engagement.
 
 ## 🚀 Why Fluento AI?
