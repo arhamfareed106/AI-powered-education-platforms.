@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fluento AI - Master IB/AP Spanish</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        emerald: {
+                            500: '#10B981',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-white">
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-black bg-opacity-80 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Left: Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-white font-bold text-xl">
+                        Fluent<span class="text-emerald-500">o</span>
+                    </span>
+                </div>
+
+                <!-- Middle: Navigation Links -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#" class="text-gray-300 hover:text-emerald-500 transition-colors duration-200 font-medium">Home</a>
+                        <a href="#" class="text-gray-300 hover:text-emerald-500 transition-colors duration-200 font-medium">Features</a>
+                        <a href="#" class="text-gray-300 hover:text-emerald-500 transition-colors duration-200 font-medium">Pricing</a>
+                        <a href="#" class="text-gray-300 hover:text-emerald-500 transition-colors duration-200 font-medium">Blog</a>
+                        <a href="#" class="text-gray-300 hover:text-emerald-500 transition-colors duration-200 font-medium">Contact</a>
+                    </div>
+                </div>
+
+                <!-- Right: Actions -->
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-globe text-white"></i>
+                    <a href="#" class="text-white font-medium hover:text-emerald-500 transition-colors">Login</a>
+                    <button class="bg-emerald-500 text-white px-4 py-2 rounded-full font-medium hover:bg-emerald-600 transition-colors">
+                        Try AI Demo
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-gray-900 to-black pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Left Side Content -->
+                <div>
+                    <div class="inline-flex items-center px-4 py-2 border border-emerald-500 rounded-full text-emerald-500 mb-6">
+                        <span class="text-sm font-medium">AI-Powered Language Learning</span>
+                    </div>
+                    
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+                        Master IB/AP Spanish with AI Tutoring
+                    </h1>
+                    
+                    <p class="text-lg text-gray-300 mb-10 max-w-2xl">
+                        Immersive Spanish learning platform with real-time feedback, voice interaction, and animated avatars. 
+                        Aligned with IB and AP curriculum standards.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="bg-emerald-500 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-emerald-600 transition-colors">
+                            Start Free Trial
+                        </button>
+                        <button class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-black transition-colors">
+                            Watch Demo
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Right Side Avatars -->
+                <div class="flex justify-center lg:justify-end">
+                    <div class="relative">
+                        <!-- Avatar Cards -->
+                        <div class="flex flex-col space-y-6">
+                            <!-- Avatar 1 -->
+                            <div class="bg-gray-800 rounded-2xl p-6 shadow-lg w-64">
+                                <div class="flex items-center space-x-4">
+                                    <div class="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16"></div>
+                                    <div>
+                                        <h3 class="font-bold text-white">Maria Rodriguez</h3>
+                                        <p class="text-emerald-500 text-sm">Native Speaker</p>
+                                    </div>
+                                </div>
+                                <p class="mt-4 text-gray-300 text-sm">
+                                    "Fluento helped me improve my speaking skills dramatically in just 2 weeks!"
+                                </p>
+                            </div>
+                            
+                            <!-- Avatar 2 -->
+                            <div class="bg-gray-800 rounded-2xl p-6 shadow-lg w-64 ml-12">
+                                <div class="flex items-center space-x-4">
+                                    <div class="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16"></div>
+                                    <div>
+                                        <h3 class="font-bold text-white">Carlos Gutierrez</h3>
+                                        <p class="text-emerald-500 text-sm">IB Examiner</p>
+                                    </div>
+                                </div>
+                                <p class="mt-4 text-gray-300 text-sm">
+                                    "The curriculum alignment is perfect for IB students preparing for exams."
+                                </p>
+                            </div>
+                            
+                            <!-- Avatar 3 -->
+                            <div class="bg-gray-800 rounded-2xl p-6 shadow-lg w-64">
+                                <div class="flex items-center space-x-4">
+                                    <div class="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16"></div>
+                                    <div>
+                                        <h3 class="font-bold text-white">Ana Martinez</h3>
+                                        <p class="text-emerald-500 text-sm">AP Student</p>
+                                    </div>
+                                </div>
+                                <p class="mt-4 text-gray-300 text-sm">
+                                    "I scored 5 on my AP Spanish exam thanks to Fluento's personalized practice."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Trust Bar -->
+            <div class="mt-20 pt-10 border-t border-gray-800">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div class="flex flex-col items-center">
+                        <span class="text-2xl font-bold text-white">4.9/5</span>
+                        <span class="text-gray-400">Rating</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span class="text-2xl font-bold text-white">IB</span>
+                        <span class="text-gray-400">Aligned</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span class="text-2xl font-bold text-white">AP</span>
+                        <span class="text-gray-400">Certified</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span class="text-2xl font-bold text-white">10K+</span>
+                        <span class="text-gray-400">Users</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Home -->
+    <section class="bg-gray-50 py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h1 class="text-3xl font-bold text-gray-900 mb-2">Welcome back, Alex! Let's Make Learning Fun!</h1>
+                <p class="text-gray-600">Continue your Spanish learning journey</p>
+            </div>
+            
+            <!-- Stats Row -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="bg-white rounded-2xl shadow-md p-6">
+                    <div class="w-12 h-12 bg-blue-500 rounded-lg mb-4 flex items-center justify-center">
+                        <i class="fas fa-fire text-white"></i>
+                    </div>
+                    <h3 class="text-gray-500 text-sm font-medium">Current Streak</h3>
+                    <p class="text-2xl font-bold text-gray-900 mt-1">7 days</p>
+                </div>
+                <div class="bg-white rounded-2xl shadow-md p-6">
+                    <div class="w-12 h-12 bg-emerald-500 rounded-lg mb-4 flex items-center justify-center">
+                        <i class="fas fa-book text-white"></i>
+                    </div>
+                    <h3 class="text-gray-500 text-sm font-medium">Lessons Completed</h3>
+                    <p class="text-2xl font-bold text-gray-900 mt-1">24</p>
+                </div>
+                <div class="bg-white rounded-2xl shadow-md p-6">
+                    <div class="w-12 h-12 bg-purple-500 rounded-lg mb-4 flex items-center justify-center">
+                        <i class="fas fa-language text-white"></i>
+                    </div>
+                    <h3 class="text-gray-500 text-sm font-medium">Words Learned</h3>
+                    <p class="text-2xl font-bold text-gray-900 mt-1">342</p>
+                </div>
+                <div class="bg-white rounded-2xl shadow-md p-6">
+                    <div class="w-12 h-12 bg-amber-500 rounded-lg mb-4 flex items-center justify-center">
+                        <i class="fas fa-percentage text-white"></i>
+                    </div>
+                    <h3 class="text-gray-500 text-sm font-medium">Accuracy Rate</h3>
+                    <p class="text-2xl font-bold text-gray-900 mt-1">89%</p>
+                </div>
+            </div>
+            
+            <!-- Skills Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                <div class="bg-white rounded-2xl shadow-md p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900">Vocabulary</h3>
+                            <span class="inline-block bg-emerald-100 text-emerald-800 text-xs px-2 py-1 rounded-full mt-2">
+                                Intermediate
+                            </span>
+                        </div>
+                        <div class="bg-gray-200 border-2 border-dashed rounded-xl w-10 h-10"></div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm text-gray-600 mb-1">
+                            <span>Progress</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-emerald-500 h-2 rounded-full" style="width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow-md p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900">Grammar</h3>
+                            <span class="inline-block bg-emerald-100 text-emerald-800 text-xs px-2 py-1 rounded-full mt-2">
+                                Beginner
+                            </span>
+                        </div>
+                        <div class="bg-gray-200 border-2 border-dashed rounded-xl w-10 h-10"></div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm text-gray-600 mb-1">
+                            <span>Progress</span>
+                            <span>45%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-emerald-500 h-2 rounded-full" style="width: 45%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow-md p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900">Listening</h3>
+                            <span class="inline-block bg-emerald-100 text-emerald-800 text-xs px-2 py-1 rounded-full mt-2">
+                                Advanced
+                            </span>
+                        </div>
+                        <div class="bg-gray-200 border-2 border-dashed rounded-xl w-10 h-10"></div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm text-gray-600 mb-1">
+                            <span>Progress</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-emerald-500 h-2 rounded-full" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow-md p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900">Speaking</h3>
+                            <span class="inline-block bg-emerald-100 text-emerald-800 text-xs px-2 py-1 rounded-full mt-2">
+                                Intermediate
+                            </span>
+                        </div>
+                        <div class="bg-gray-200 border-2 border-dashed rounded-xl w-10 h-10"></div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm text-gray-600 mb-1">
+                            <span>Progress</span>
+                            <span>65%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-emerald-500 h-2 rounded-full" style="width: 65%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Learning Path -->
+            <div class="bg-white rounded-2xl shadow-md p-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-6">Your Learning Path</h2>
+                
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between p-4 border border-gray-200 rounded-xl">
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 rounded-full flex items-center justify-center mr-4 bg-emerald-500">
+                                <i class="fas fa-check text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-gray-900">Present Tense Verbs</h3>
+                                <p class="text-sm text-gray-500">15 min</p>
+                            </div>
+                        </div>
+                        <span class="text-emerald-500 font-medium">Completed</span>
+                    </div>
+                    <div class="flex items-center justify-between p-4 border border-gray-200 rounded-xl">
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 rounded-full flex items-center justify-center mr-4 bg-emerald-500">
+                                <i class="fas fa-check text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-gray-900">Ser vs Estar</h3>
+                                <p class="text-sm text-gray-500">20 min</p>
+                            </div>
+                        </div>
+                        <span class="text-emerald-500 font-medium">Completed</span>
+                    </div>
+                    <div class="flex items-center justify-between p-4 border border-gray-200 rounded-xl">
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 rounded-full flex items-center justify-center mr-4 bg-gray-200">
+                                <span class="text-gray-700 font-medium">3</span>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-gray-900">Food Vocabulary</h3>
+                                <p class="text-sm text-gray-500">25 min</p>
+                            </div>
+                        </div>
+                        <button class="bg-emerald-500 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-emerald-600 transition-colors">
+                            Continue
+                        </button>
+                    </div>
+                    <div class="flex items-center justify-between p-4 border border-gray-200 rounded-xl">
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 rounded-full flex items-center justify-center mr-4 bg-gray-200">
+                                <span class="text-gray-700 font-medium">4</span>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-gray-900">Restaurant Conversations</h3>
+                                <p class="text-sm text-gray-500">30 min</p>
+                            </div>
+                        </div>
+                        <button class="bg-emerald-500 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-emerald-600 transition-colors">
+                            Continue
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Session Complete -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <!-- Green Gradient Banner -->
+            <div class="bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl p-8 mb-12">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="text-white mb-6 md:mb-0">
+                        <h1 class="text-3xl font-bold mb-2">Session Complete!</h1>
+                        <p class="text-emerald-100">Great job on completing your Spanish lesson</p>
+                    </div>
+                    <div class="bg-white rounded-full w-32 h-32 flex items-center justify-center">
+                        <div class="text-center">
+                            <span class="text-4xl font-bold text-emerald-600">92</span>
+                            <span class="block text-gray-600">Score</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Progress Bars -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white rounded-2xl shadow-md p-6">
+                    <div class="flex justify-between mb-2">
+                        <h3 class="font-medium text-gray-900">Pronunciation</h3>
+                        <span class="font-bold text-emerald-600">85%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-3">
+                        <div class="bg-emerald-500 h-3 rounded-full" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow-md p-6">
+                    <div class="flex justify-between mb-2">
+                        <h3 class="font-medium text-gray-900">Grammar</h3>
+                        <span class="font-bold text-emerald-600">95%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-3">
+                        <div class="bg-emerald-500 h-3 rounded-full" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow-md p-6">
+                    <div class="flex justify-between mb-2">
+                        <h3 class="font-medium text-gray-900">Vocabulary</h3>
+                        <span class="font-bold text-emerald-600">78%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-3">
+                        <div class="bg-emerald-500 h-3 rounded-full" style="width: 78%"></div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow-md p-6">
+                    <div class="flex justify-between mb-2">
+                        <h3 class="font-medium text-gray-900">Fluency</h3>
+                        <span class="font-bold text-emerald-600">90%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-3">
+                        <div class="bg-emerald-500 h-3 rounded-full" style="width: 90%"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Suggestions Box -->
+            <div class="border-2 border-dashed border-blue-300 rounded-2xl p-8 mb-12">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Personalized Suggestions</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-xl p-6 shadow-sm border-l-4 border-l-emerald-500">
+                        <h3 class="font-bold text-lg text-gray-900 mb-2">Focus on Pronunciation</h3>
+                        <p class="text-gray-600">Practice rolling your Rs more consistently</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-6 shadow-sm border-l-4 border-l-blue-500">
+                        <h3 class="font-bold text-lg text-gray-900 mb-2">Expand Vocabulary</h3>
+                        <p class="text-gray-600">Learn 10 new food-related words this week</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Comparison Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-2xl shadow-md p-6">
+                    <h3 class="font-bold text-gray-900 mb-4">You said:</h3>
+                    <div class="bg-gray-100 rounded-xl p-4">
+                        <p class="text-gray-800 italic">"Quiero comer una manzana roja."</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-2xl shadow-md p-6">
+                    <h3 class="font-bold text-gray-900 mb-4">Correct:</h3>
+                    <div class="bg-emerald-50 rounded-xl p-4 border border-emerald-200">
+                        <p class="text-emerald-800 italic">"Quiero comer una manzana roja."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Split Sections -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <!-- Section A: Left text + accordion, Right image -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Immersive AI-Powered Learning</h2>
+                    <p class="text-gray-600 mb-8">
+                        Our cutting-edge platform combines artificial intelligence with immersive experiences to accelerate your Spanish learning journey.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="border border-gray-200 rounded-xl">
+                            <button class="w-full flex justify-between items-center p-6 text-left">
+                                <span class="font-medium text-gray-900">Real-time Voice Feedback</span>
+                                <i class="fas fa-chevron-down text-gray-500"></i>
+                            </button>
+                        </div>
+                        <div class="border border-gray-200 rounded-xl">
+                            <button class="w-full flex justify-between items-center p-6 text-left">
+                                <span class="font-medium text-gray-900">Adaptive Learning Paths</span>
+                                <i class="fas fa-chevron-down text-gray-500"></i>
+                            </button>
+                        </div>
+                        <div class="border border-gray-200 rounded-xl">
+                            <button class="w-full flex justify-between items-center p-6 text-left">
+                                <span class="font-medium text-gray-900">Interactive Avatars</span>
+                                <i class="fas fa-chevron-down text-gray-500"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-200 border-2 border-dashed rounded-2xl w-full h-96 flex items-center justify-center">
+                    <span class="text-gray-500">Feature Image</span>
+                </div>
+            </div>
+            
+            <!-- Section B: Left image, Right text + tabs -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="bg-gray-200 border-2 border-dashed rounded-2xl w-full h-96 flex items-center justify-center order-2 lg:order-1">
+                    <span class="text-gray-500">Feature Image</span>
+                </div>
+                
+                <div class="order-1 lg:order-2">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Designed for Everyone</h2>
+                    <p class="text-gray-600 mb-8">
+                        Whether you're a student preparing for exams or an educator looking to enhance your curriculum, Fluento has you covered.
+                    </p>
+                    
+                    <!-- Tabs -->
+                    <div class="border-b border-gray-200 mb-8">
+                        <nav class="-mb-px flex space-x-8">
+                            <button class="whitespace-nowrap py-4 px-1 border-b-2 border-emerald-500 text-emerald-600 font-medium text-sm">
+                                Students
+                            </button>
+                            <button class="whitespace-nowrap py-4 px-1 border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 font-medium text-sm">
+                                Teachers
+                            </button>
+                            <button class="whitespace-nowrap py-4 px-1 border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 font-medium text-sm">
+                                Schools
+                            </button>
+                        </nav>
+                    </div>
+                    
+                    <!-- Tab Content -->
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Personalized Learning for Students</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check h-5 w-5 text-emerald-500 mt-0.5 mr-2"></i>
+                                <span class="text-gray-600">Adaptive curriculum based on your skill level</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check h-5 w-5 text-emerald-500 mt-0.5 mr-2"></i>
+                                <span class="text-gray-600">Real-time pronunciation feedback</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check h-5 w-5 text-emerald-500 mt-0.5 mr-2"></i>
+                                <span class="text-gray-600">Gamified progress tracking</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check h-5 w-5 text-emerald-500 mt-0.5 mr-2"></i>
+                                <span class="text-gray-600">Exam-specific practice modules</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Features Grid -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Core Features</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Everything you need to master Spanish efficiently and enjoyably
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl shadow-md p-8">
+                    <div class="w-12 h-12 bg-emerald-500 rounded-lg mb-6 flex items-center justify-center">
+                        <i class="fas fa-microphone text-white"></i>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">AI Voice Recognition</h3>
+                    <p class="text-gray-600 mb-6">Advanced speech processing for accurate pronunciation assessment.</p>
+                    
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check h-5 w-5 text-emerald-500 mt-0.5 mr-2"></i>
+                            <span class="text-gray-600">Real-time feedback</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check h-5 w-5 text-emerald-500 mt-0.5 mr-2"></i>
+                            <span class="text-gray-600">Accent reduction</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check h-5 w-5 text-emerald-500 mt-0.5 mr-2"></i>
+                            <span class="text-gray-600">Fluency scoring</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white rounded-2xl shadow-md p-8">
+                    <div class="w-12 h-12 bg-emerald-500 rounded-lg mb-6 flex items-center justify-center">
+                        <i class="fas fa-route text-white"></i>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Adaptive Curriculum</h3>
+                    <p class="text-gray-600 mb-6">Personalized learning paths that evolve with your progress.</p>
+                    
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check h-5 w-5 text-emerald-500 mt-0.5 mr-2"></i>
+                            <span class="text-gray-600">Skill assessment</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check h-5 w-5 text-emerald-500 mt-0.5 mr-2"></i>
+                            <span class="text-gray-600">Weakness identification</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check h-5 w-5 text-emerald-500 mt-0.5 mr-2"></i>
+                            <span class="text-gray-600">Targeted practice</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white rounded-2xl shadow-md p-8">
+                    <div class="w-12 h-12 bg-emerald-500 rounded-lg mb-6 flex items-center justify-center">
+                        <i class="fas fa-user-friends text-white"></i>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Animated Avatars</h3>
+                    <p class="text-gray-600 mb-6">Interactive characters for engaging conversation practice.</p>
+                    
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check h-5 w-5 text-emerald-500 mt-0.5 mr-2"></i>
+                            <span class="text-gray-600">Multiple personalities</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check h-5 w-5 text-emerald-500 mt-0.5 mr-2"></i>
+                            <span class="text-gray-600">Scenario-based dialogues</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check h-5 w-5 text-emerald-500 mt-0.5 mr-2"></i>
+                            <span class="text-gray-600">Emotional responses</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white rounded-2xl shadow-md p-8">
+                    <div class="w-12 h-12 bg-emerald-500 rounded-lg mb-6 flex items-center justify-center">
+                        <i class="fas fa-chart-line text-white"></i>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Progress Analytics</h3>
+                    <p class="text-gray-600 mb-6">Detailed insights into your learning journey and improvements.</p>
+                    
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check h-5 w-5 text-emerald-500 mt-0.5 mr-2"></i>
+                            <span class="text-gray-600">Performance tracking</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check h-5 w-5 text-emerald-500 mt-0.5 mr-2"></i>
+                            <span class="text-gray-600">Weekly reports</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check h-5 w-5 text-emerald-500 mt-0.5 mr-2"></i>
+                            <span class="text-gray-600">Goal setting</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white rounded-2xl shadow-md p-8">
+                    <div class="w-12 h-12 bg-emerald-500 rounded-lg mb-6 flex items-center justify-center">
+                        <i class="fas fa-file-alt text-white"></i>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Exam Preparation</h3>
+                    <p class="text-gray-600 mb-6">Specialized modules for IB and AP Spanish examinations.</p>
+                    
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check h-5 w-5 text-emerald-500 mt-0.5 mr-2"></i>
+                            <span class="text-gray-600">Practice tests</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check h-5 w-5 text-emerald-500 mt-0.5 mr-2"></i>
+                            <span class="text-gray-600">Scoring rubrics</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check h-5 w-5 text-emerald-500 mt-0.5 mr-2"></i>
+                            <span class="text-gray-600">Time management</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white rounded-2xl shadow-md p-8">
+                    <div class="w-12 h-12 bg-emerald-500 rounded-lg mb-6 flex items-center justify-center">
+                        <i class="fas fa-users text-white"></i>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Community Features</h3>
+                    <p class="text-gray-600 mb-6">Connect with fellow learners and native speakers worldwide.</p>
+                    
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check h-5 w-5 text-emerald-500 mt-0.5 mr-2"></i>
+                            <span class="text-gray-600">Language exchange</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check h-5 w-5 text-emerald-500 mt-0.5 mr-2"></i>
+                            <span class="text-gray-600">Group challenges</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check h-5 w-5 text-emerald-500 mt-0.5 mr-2"></i>
+                            <span class="text-gray-600">Cultural events</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Simple, Transparent Pricing</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Choose the plan that works best for you. All plans include a 7-day free trial.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="rounded-2xl shadow-md p-8 bg-gray-50">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Free</h3>
+                        <p class="text-gray-600 mb-4">Perfect for getting started</p>
+                        <div class="flex justify-center items-baseline">
+                            <span class="text-4xl font-extrabold text-gray-900">$0</span>
+                            <span class="text-gray-600 ml-1">/month</span>
+                        </div>
+                    </div>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check h-5 w-5 text-emerald-500 mt-0.5 mr-2"></i>
+                            <span class="text-gray-600">5 lessons per month</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check h-5 w-5 text-emerald-500 mt-0.5 mr-2"></i>
+                            <span class="text-gray-600">Basic vocabulary exercises</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check h-5 w-5 text-emerald-500 mt-0.5 mr-2"></i>
+                            <span class="text-gray-600">Community access</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check h-5 w-5 text-emerald-500 mt-0.5 mr-2"></i>
+                            <span class="text-gray-600">Progress tracking</span>
+                        </li>
+                    </ul>
+                    
+                    <button class="w-full py-3 px-4 rounded-full font-medium bg-white text-emerald-600 border border-emerald-500 hover:bg-emerald-50 transition-colors">
+                        Get Started
+                    </button>
+                </div>
+                <div class="rounded-2xl shadow-md p-8 ring-2 ring-emerald-500 bg-white transform md:-translate-y-4 relative">
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                        <span class="bg-emerald-500 text-white px-4 py-2 rounded-full text-sm font-medium">
+                            Most Popular
+                        </span>
+                    </div>
+                    
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Pro</h3>
+                        <p class="text-gray-600 mb-4">Most popular for serious learners</p>
+                        <div class="flex justify-center items-baseline">
+                            <span class="text-4xl font-extrabold text-gray-900">$19</span>
+                            <span class="text-gray-600 ml-1">/month</span>
+                        </div>
+                    </div>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check h-5 w-5 text-emerald-500 mt-0.5 mr-2"></i>
+                            <span class="text-gray-600">Unlimited lessons</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check h-5 w-5 text-emerald-500 mt-0.5 mr-2"></i>
+                            <span class="text-gray-600">AI voice feedback</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check h-5 w-5 text-emerald-500 mt-0.5 mr-2"></i>
+                            <span class="text-gray-600">Animated avatar conversations</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check h-5 w-5 text-emerald-500 mt-0.5 mr-2"></i>
+                            <span class="text-gray-600">Exam prep modules</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check h-5 w-5 text-emerald-500 mt-0.5 mr-2"></i>
+                            <span class="text-gray-600">Progress analytics</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check h-5 w-5 text-emerald-500 mt-0.5 mr-2"></i>
+                            <span class="text-gray-600">Priority support</span>
+                        </li>
+                    </ul>
+                    
+                    <button class="w-full py-3 px-4 rounded-full font-medium bg-emerald-500 text-white hover:bg-emerald-600 transition-colors">
+                        Get Started
+                    </button>
+                </div>
+                <div class="rounded-2xl shadow-md p-8 bg-gray-50">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Premium</h3>
+                        <p class="text-gray-600 mb-4">Complete immersion experience</p>
+                        <div class="flex justify-center items-baseline">
+                            <span class="text-4xl font-extrabold text-gray-900">$39</span>
+                            <span class="text-gray-600 ml-1">/month</span>
+                        </div>
+                    </div>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check h-5 w-5 text-emerald-500 mt-0.5 mr-2"></i>
+                            <span class="text-gray-600">Everything in Pro</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check h-5 w-5 text-emerald-500 mt-0.5 mr-2"></i>
+                            <span class="text-gray-600">1-on-1 tutoring sessions</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check h-5 w-5 text-emerald-500 mt-0.5 mr-2"></i>
+                            <span class="text-gray-600">Custom learning paths</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check h-5 w-5 text-emerald-500 mt-0.5 mr-2"></i>
+                            <span class="text-gray-600">Offline downloads</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check h-5 w-5 text-emerald-500 mt-0.5 mr-2"></i>
+                            <span class="text-gray-600">Certificate of completion</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check h-5 w-5 text-emerald-500 mt-0.5 mr-2"></i>
+                            <span class="text-gray-600">Dedicated account manager</span>
+                        </li>
+                    </ul>
+                    
+                    <button class="w-full py-3 px-4 rounded-full font-medium bg-white text-emerald-600 border border-emerald-500 hover:bg-emerald-50 transition-colors">
+                        Get Started
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="border-2 border-dashed border-blue-300 rounded-2xl p-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+                    <p class="text-gray-600">
+                        Everything you need to know about the platform
+                    </p>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="border border-gray-200 rounded-xl overflow-hidden">
+                        <button class="w-full flex justify-between items-center p-6 text-left bg-white hover:bg-gray-50 transition-colors">
+                            <span class="font-medium text-gray-900">How does the AI voice recognition work?</span>
+                            <i class="fas fa-chevron-down h-5 w-5 text-gray-500 transition-transform duration-300 rotate-180"></i>
+                        </button>
+                        
+                        <div class="p-6 bg-white border-t border-gray-200">
+                            <p class="text-gray-600">Our advanced AI analyzes your pronunciation, intonation, and fluency in real-time, providing instant feedback to help you improve your Spanish speaking skills.</p>
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 rounded-xl overflow-hidden">
+                        <button class="w-full flex justify-between items-center p-6 text-left bg-white hover:bg-gray-50 transition-colors">
+                            <span class="font-medium text-gray-900">Is Fluento suitable for beginners?</span>
+                            <i class="fas fa-chevron-down h-5 w-5 text-gray-500 transition-transform duration-300"></i>
+                        </button>
+                    </div>
+                    <div class="border border-gray-200 rounded-xl overflow-hidden">
+                        <button class="w-full flex justify-between items-center p-6 text-left bg-white hover:bg-gray-50 transition-colors">
+                            <span class="font-medium text-gray-900">Can I prepare for IB or AP exams with Fluento?</span>
+                            <i class="fas fa-chevron-down h-5 w-5 text-gray-500 transition-transform duration-300"></i>
+                        </button>
+                    </div>
+                    <div class="border border-gray-200 rounded-xl overflow-hidden">
+                        <button class="w-full flex justify-between items-center p-6 text-left bg-white hover:bg-gray-50 transition-colors">
+                            <span class="font-medium text-gray-900">How much time should I spend daily?</span>
+                            <i class="fas fa-chevron-down h-5 w-5 text-gray-500 transition-transform duration-300"></i>
+                        </button>
+                    </div>
+                    <div class="border border-gray-200 rounded-xl overflow-hidden">
+                        <button class="w-full flex justify-between items-center p-6 text-left bg-white hover:bg-gray-50 transition-colors">
+                            <span class="font-medium text-gray-900">Do you offer refunds?</span>
+                            <i class="fas fa-chevron-down h-5 w-5 text-gray-500 transition-transform duration-300"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
