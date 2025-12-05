@@ -5,9 +5,8 @@ const Home: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="text-center mb-12">
-        <h1 className="text-4xl md:text-6xl font-bold text-blue-600 mb-4">Fluento AI</h1>
-        <p className="text-xl text-gray-600 mb-8">Master Spanish with AI-Powered Tutoring</p>
-        
+        <h1 className="text-4xl md:text-6xl font-bold text-blue-600 mb-4">Fluentix</h1>
+        <p className="text-xl text-gray-600 mb-8">Master Spanish with AI-Powered Tutoring</p>        
         <div className="flex justify-center space-x-4">
           <Link to="/signup" className="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition duration-300">
             Get Started

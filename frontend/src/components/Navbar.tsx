@@ -6,8 +6,7 @@ const Navbar: React.FC = () => {
     <nav className="bg-blue-600 text-white shadow-lg">
       <div className="container mx-auto px-4 py-3">
         <div className="flex justify-between items-center">
-          <Link to="/" className="text-2xl font-bold">Fluento AI</Link>
-          
+          <Link to="/" className="text-2xl font-bold">Fluentix</Link>
           <div className="flex space-x-4">
             <Link to="/dashboard" className="hover:text-blue-200">Dashboard</Link>
             <Link to="/ai-tutor" className="hover:text-blue-200">AI Tutor</Link>
