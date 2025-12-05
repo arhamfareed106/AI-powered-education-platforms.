@@ -1,78 +1,77 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
+from pydantic import EmailStr
 from app import crud, schemas
 from app.api import deps
 from app.core.config import settings
+from app.core.security import create_access_token, create_refresh_token
 from app.models.user import User
-from app.auth.service import AuthService
 from datetime import timedelta
 
 router = APIRouter()
-auth_service = AuthService()
 
 @router.post("/signup", response_model=schemas.User)
-async def signup(
+def signup(
     *,
     db: Session = Depends(deps.get_db),
     user_in: schemas.UserCreate,
 ) -> User:
     """
-    Create new user using the auth service.
+    Create new user.
     """
     # Check if user already exists
-    existing_user = crud.get_user_by_email(db, email=user_in.email)
+    existing_user = crud.user.get_by_email(db, email=user_in.email)
     if existing_user:
         raise HTTPException(
             status_code=400,
             detail="The user with this email already exists in the system.",
         )
     
-    # Register user using auth service
-    user_data = await auth_service.register_user(
-        email=user_in.email,
-        password=user_in.password,
-        name=user_in.name,
-        role=user_in.role or "student"
-    )
+    existing_username = crud.user.get_by_username(db, username=user_in.username)
+    if existing_username:
+        raise HTTPException(
+            status_code=400,
+            detail="The user with this username already exists in the system.",
+        )
     
     # Create user in database
-    user = crud.create_user(db, user=user_in)
+    user = crud.user.create(db, obj_in=user_in)
     return user
 
 @router.post("/login", response_model=schemas.Token)
-async def login(
+def login(
     *,
     db: Session = Depends(deps.get_db),
     user_in: schemas.UserLogin,
 ) -> dict:
     """
-    OAuth2 compatible token login, get an access token for future requests using the auth service.
+    OAuth2 compatible token login, get an access token for future requests.
     """
-    # Authenticate user using auth service
-    user_data = await auth_service.authenticate_user(user_in.email, user_in.password)
-    if not user_data:
+    # Authenticate user
+    user = crud.user.authenticate(db, email=user_in.email, password=user_in.password)
+    if not user:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Incorrect email or password",
             headers={"WWW-Authenticate": "Bearer"},
         )
     
-    # Get user from database
-    user = crud.get_user_by_email(db, email=user_in.email)
-    if not user:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="User not found",
-            headers={"WWW-Authenticate": "Bearer"},
-        )
+    if not crud.user.is_active(user):
+        raise HTTPException(status_code=400, detail="Inactive user")
     
-    # Create access token
+    # Create tokens
     access_token_expires = timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES)
-    access_token = auth_service.create_access_token(
-        data={"user_id": user.id, "role": user.role}, expires_delta=access_token_expires
+    access_token = create_access_token(
+        data={"user_id": user.id, "role": user.role}, 
+        expires_delta=access_token_expires
     )
+    refresh_token = create_refresh_token(data={"user_id": user.id})
     
-    return {"access_token": access_token, "token_type": "bearer"}
+    return {
+        "access_token": access_token,
+        "refresh_token": refresh_token,
+        "token_type": "bearer"
+    }
 
 @router.get("/me", response_model=schemas.User)
 def read_user_me(
@@ -91,25 +90,42 @@ def refresh_token(
     Refresh access token
     """
     access_token_expires = timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES)
-    access_token = auth_service.create_access_token(
-        data={"user_id": current_user.id, "role": current_user.role}, expires_delta=access_token_expires
+    access_token = create_access_token(
+        data={"user_id": current_user.id, "role": current_user.role}, 
+        expires_delta=access_token_expires
     )
+    refresh_token_new = create_refresh_token(data={"user_id": current_user.id})
     
-    return {"access_token": access_token, "token_type": "bearer"}
+    return {
+        "access_token": access_token,
+        "refresh_token": refresh_token_new,
+        "token_type": "bearer"
+    }
 
-@router.post("/verify-token", response_model=dict)
-async def verify_token(
-    token: str,
+@router.post("/forgot-password")
+def forgot_password(
+    email: EmailStr,
+    db: Session = Depends(deps.get_db),
 ) -> dict:
     """
-    Verify a JWT access token.
+    Send password reset email
     """
-    payload = auth_service.verify_access_token(token)
-    if not payload:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Invalid token",
-            headers={"WWW-Authenticate": "Bearer"},
-        )
+    user = crud.user.get_by_email(db, email=email)
+    if not user:
+        # Don't reveal that user doesn't exist
+        return {"message": "If the email exists, a reset link has been sent"}
     
-    return {"valid": True, "payload": payload}
+    # TODO: Implement email sending with reset token
+    return {"message": "If the email exists, a reset link has been sent"}
+
+@router.post("/reset-password")
+def reset_password(
+    token: str,
+    new_password: str,
+    db: Session = Depends(deps.get_db),
+) -> dict:
+    """
+    Reset password with token
+    """
+    # TODO: Implement password reset with token validation
+    return {"message": "Password reset successful"}

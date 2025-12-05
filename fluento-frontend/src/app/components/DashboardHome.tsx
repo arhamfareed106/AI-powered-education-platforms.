@@ -6,7 +6,7 @@ export default function DashboardHome() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Welcome back, Alex! Let&apos;s Make Learning Fun!</h1>
-          <p className="text-gray-600">Continue your Spanish learning journey</p>
+          <p className="text-gray-600">Continue your Spanish learning journey with Fluentix</p>
         </div>
         
         {/* Stats Row */}

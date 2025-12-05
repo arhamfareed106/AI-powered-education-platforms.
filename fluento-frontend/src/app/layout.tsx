@@ -2,7 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Fluento AI - Master IB/AP Spanish',
+  title: 'Fluentix - AI-powered Virtual Spanish Tutor for IB & AP Students',
   description: 'Immersive Spanish learning platform powered by AI tutoring',
 }
 

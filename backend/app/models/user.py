@@ -31,6 +31,9 @@ class User(Base):
     assignments = relationship("Assignment", back_populates="created_by")
     submissions = relationship("Submission", back_populates="student")
     grades = relationship("Grade", back_populates="graded_by")
+    sessions = relationship("Session", back_populates="user")
+    progress = relationship("Progress", back_populates="user", uselist=False)
+    subscription = relationship("Subscription", back_populates="user", uselist=False)
 
 class School(Base):
     __tablename__ = "schools"

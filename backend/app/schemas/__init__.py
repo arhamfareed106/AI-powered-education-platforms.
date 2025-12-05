@@ -1,4 +1,11 @@
-from .user import User, UserCreate, UserUpdate, UserInDB, School, SchoolCreate, SchoolUpdate, Class, ClassCreate, ClassUpdate, Token, TokenData
-from .assignment import Assignment, AssignmentCreate, AssignmentUpdate, Submission, SubmissionCreate, SubmissionUpdate, Grade, GradeCreate, GradeUpdate, WritingScore, WritingScoreCreate, SpeechScore, SpeechScoreCreate
-from .chat import Conversation, ConversationCreate, ConversationUpdate, Message, MessageCreate, MessageUpdate
-from .payment import Payment, PaymentCreate, PaymentUpdate, Subscription, SubscriptionCreate, SubscriptionUpdate, UsageLog, UsageLogCreate
+from app.schemas.user import User, UserCreate, UserUpdate, UserLogin
+from app.schemas.token import Token, TokenPayload
+from app.schemas.assignment import Assignment, AssignmentCreate, AssignmentUpdate
+from app.schemas.chat import Conversation, Message, MessageCreate
+
+__all__ = [
+    "User", "UserCreate", "UserUpdate", "UserLogin",
+    "Token", "TokenPayload",
+    "Assignment", "AssignmentCreate", "AssignmentUpdate",
+    "Conversation", "Message", "MessageCreate"
+]
